@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Örgü Butik | Kayıt Ol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="theme.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Örgü Butik</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menüyü aç">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" data-nav href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" data-nav href="about.html">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" data-nav href="products.html">Ürünler</a></li>
+          <li class="nav-item"><a class="nav-link" data-nav href="campaigns.html">Kampanyalar</a></li>
+          <li class="nav-item"><a class="nav-link" data-nav href="contact.html">İletişim</a></li>
+          <li class="nav-item"><a class="nav-link active" data-nav href="register.html">Kayıt Ol</a></li>
+          <li class="nav-item"><a class="nav-link" data-nav href="login.html">Giriş Yap</a></li>
+        </ul>
+        <a class="badge text-bg-warning ms-lg-3 text-decoration-none" href="cart.html" title="Sepete git">Sepet: <span data-cart-count>0</span></a>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="d-flex align-items-center justify-content-center py-5">
+    <div class="auth-card">
+      <div class="text-center mb-4">
+        <div class="auth-icon mb-3">
+          <i class="bi bi-person-plus-fill"></i>
+        </div>
+        <h1 class="auth-title">Kayıt Ol</h1>
+        <p class="text-muted">Yeni hesap oluşturun</p>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <div class="mb-3">
+          <label for="registerName" class="form-label fw-semibold">Ad Soyad</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" id="registerName" placeholder="Adınız Soyadınız" required minlength="3" />
+          </div>
+          <div class="invalid-feedback">Ad Soyad en az 3 karakter olmalıdır.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="registerEmail" class="form-label fw-semibold">E-posta Adresi</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input type="email" class="form-control" id="registerEmail" placeholder="ornek@email.com" required />
+          </div>
+          <div class="invalid-feedback">Lütfen geçerli bir e-posta adresi girin.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="registerPassword" class="form-label fw-semibold">Şifre</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input type="password" class="form-control" id="registerPassword" placeholder="En az 6 karakter" required minlength="6" />
+            <button class="btn btn-outline-secondary" type="button" id="toggleRegisterPassword" tabindex="-1">
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+          <div class="invalid-feedback">Şifre en az 6 karakter olmalıdır.</div>
+        </div>
+
+        <div class="mb-4">
+          <label for="registerPasswordConfirm" class="form-label fw-semibold">Şifre Tekrar</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+            <input type="password" class="form-control" id="registerPasswordConfirm" placeholder="Şifrenizi tekrar girin" required />
+          </div>
+          <div id="passwordMismatch" class="text-danger small mt-1 d-none">Şifreler eşleşmiyor.</div>
+        </div>
+
+        <div id="registerAlert" class="alert alert-danger d-none" role="alert"></div>
+        <div id="registerSuccess" class="alert alert-success d-none" role="alert">Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz...</div>
+
+        <button type="submit" class="btn btn-success w-100 auth-btn">
+          <i class="bi bi-check-circle me-2"></i>Kayıt Ol
+        </button>
+      </form>
+
+      <hr class="my-4">
+      <p class="text-center text-muted mb-0">
+        Zaten hesabınız var mı? 
+        <a href="login.html" class="fw-semibold auth-link">Giriş Yap</a>
+      </p>
+    </div>
+  </main>
+
+
+  <footer class="py-4 border-top bg-white">
+    <div class="container d-flex justify-content-between flex-wrap gap-2">
+      <small class="text-secondary">&copy; <span data-year></span> Örgü Butik</small>
+      <small class="text-secondary">Bootstrap ile hazırlandı</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="cart.js"></script>
+  <script>
+
+    document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+
+
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      if (link.href === location.href) link.classList.add('active');
+    });
+
+
+    document.getElementById('toggleRegisterPassword').addEventListener('click', function () {
+      const input = document.getElementById('registerPassword');
+      const icon = this.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('bi-eye', 'bi-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.replace('bi-eye-slash', 'bi-eye');
+      }
+    });
+
+
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = this;
+      const alertEl = document.getElementById('registerAlert');
+      const successEl = document.getElementById('registerSuccess');
+      const mismatch = document.getElementById('passwordMismatch');
+
+      form.classList.add('was-validated');
+
+      const password = document.getElementById('registerPassword').value;
+      const confirm = document.getElementById('registerPasswordConfirm').value;
+
+      if (password !== confirm) {
+        mismatch.classList.remove('d-none');
+        return;
+      } else {
+        mismatch.classList.add('d-none');
+      }
+
+      if (!form.checkValidity()) return;
+
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+
+
+      const users = JSON.parse(localStorage.getItem('orgu_users') || '[]');
+      if (users.find(u => u.email === email)) {
+        alertEl.textContent = 'Bu e-posta adresi zaten kayıtlı.';
+        alertEl.classList.remove('d-none');
+        return;
+      }
+
+
+      users.push({ name, email, password });
+      localStorage.setItem('orgu_users', JSON.stringify(users));
+
+      alertEl.classList.add('d-none');
+      successEl.classList.remove('d-none');
+      setTimeout(() => { window.location.href = 'login.html'; }, 1800);
+    });
+  </script>
+</body>
+</html>
